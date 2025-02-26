@@ -5,76 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="styles.css" rel="stylesheet">
   
   <title>Frontend Mentor | Time tracking dashboard</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main>
+    <div id="profile">
+      <div id="profile-head">
+        <img src="images/image-jeremy.png" alt="Jeremy Robson" id="profile-picture">
+        Report for
+        <h1>Jeremy Robson</h1>
+      </div><!-- profile-head -->
+      <div id="profile-filter">
+        <p>Daily</p>
+        <p class="active">Weekly</p>
+        <p>Monthly</p>
+      </div><!-- profile-filter -->
+    </div><!-- profile -->
+    <div id="card-board">
+      <div class="card" id="work">
+        <div class="card-content">
+          <div class="card-content-title">
+            <h3>Work</h3>
+            <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+          </div><!-- card-content-title -->
+          <div class="dnone">
+            <h2>5hrs
+              <span>Previous - 7hrs</span></h2> 
+            </div>
+            <h2>32hrs
+              <span>Previous - 36hrs</span></h2>
+              <div class="dnone">
+                <h2>103hrs
+                  <span>Previous - 128hrs</span></h2>
+                </div>
+              </div><!-- card-content -->
+            </div><!-- card -->
 
-  Report for
-  Jeremy Robson
+            <div class="card" id="play">
+              <div class="card-content">
+                <div class="card-content-title">
+                  <h3>Play</h3>
+                  <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                </div><!-- card-content-title -->
+                <div class="dnone">
+                  <h2>1hr
+                    <span>Previous - 2hrs</span></h2> 
+                  </div>
+                  <h2>10hrs
+                    <span>Previous - 8hrs</span></h2>
+                    <div class="dnone">
+                      <h2>23hrs
+                        <span>Previous - 29hrs</span></h2>
+                      </div>
+                    </div><!-- card-content -->
+                  </div><!-- card -->
 
-  Daily
-  Weekly
-  Monthly
+                  <div class="card" id="study">
+                    <div class="card-content">
+                      <div class="card-content-title">
+                        <h3>Study</h3>
+                        <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                      </div><!-- card-content-title -->
+                      <div class="dnone">
+                        <h2>0hrs
+                          <span>Previous - 1hr</span></h2> 
+                        </div>
+                        <h2>4hrs
+                          <span>Previous - 7hrs</span></h2>
+                          <div class="dnone">
+                            <h2>13hrs
+                              <span>Previous - 19hrs</span></h2>
+                            </div>
+                          </div><!-- card-content -->
+                        </div><!-- card -->
 
-  Work
-  5hrs <!-- daily -->
-  Previous - 7hrs <!-- daily -->
-  32hrs <!-- weekly -->
-  Previous - 36hrs <!-- weekly -->
-  103hrs <!-- monthly -->
-  Previous - 128hrs <!-- monthly -->
+                        <div class="card" id="exercise">
+                          <div class="card-content">
+                            <div class="card-content-title">
+                              <h3>Exercise</h3>
+                              <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                            </div><!-- card-content-title -->
+                            <div class="dnone">
+                              <h2>1hr
+                                <span>Previous - 1hr</span></h2> 
+                              </div>
+                              <h2>4hrs
+                                <span>Previous - 5hrs</span></h2>
+                                <div class="dnone">
+                                  <h2>11hrs
+                                    <span>Previous - 18hrs</span></h2>
+                                  </div>
+                                </div><!-- card-content -->
+                              </div><!-- card -->
 
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
+                              <div class="card" id="social">
+                                <div class="card-content">
+                                  <div class="card-content-title">
+                                    <h3>Social</h3>
+                                    <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                                  </div><!-- card-content-title -->
+                                  <div class="dnone">
+                                    <h2>1hr
+                                      <span>Previous - 3hrs</span></h2>
+                                    </div>
+                                    <h2>5hrs
+                                      <span>Previous - 10hrs</span></h2>
+                                      <div class="dnone">
+                                        <h2>21hrs
+                                          <span>Previous - 23hrs</span></h2>
+                                        </div>
+                                      </div><!-- card-content -->
+                                    </div><!-- card -->
 
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
-
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
-
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
-
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
-</html>
+                                    <div class="card" id="selfcare">
+                                      <div class="card-content">
+                                        <div class="card-content-title">
+                                          <h3>Self Care</h3>
+                                          <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                                        </div><!-- card-content-title -->
+                                        <div class="dnone">
+                                          <h2>0hrs
+                                            <span>Previous - 1hr</span></h2>
+                                          </div>
+                                          <h2>2hrs
+                                            <span>Previous - 2hrs</span></h2>
+                                            <div class="dnone">
+                                              <h2>7hrs
+                                                <span>Previous - 11hrs</span></h2>
+                                              </div>
+                                            </div><!-- card-content -->
+                                          </div><!-- card -->
+                                        </div><!-- card-board -->
+                                      </main>
+                                    </body>
+                                    <script>
+                                      function fetchJSONData() {
+                                        fetch('http://localhost:8082/data.json')
+                                        .then(response => {
+                                          if (!response.ok) {
+                                            throw new Error(`HTTP error! Status: ${response.status}`);
+                                          }
+                                          return response.json();  
+                                        })
+                                        .then(data => console.log(data))  
+                                        .catch(error => console.error('Failed to fetch data:', error)); 
+                                      }
+                                      fetchJSONData();  
+                                    </script>
+                                    </html>
