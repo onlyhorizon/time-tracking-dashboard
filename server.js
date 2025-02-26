@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 // Die Route, die die JSON-Daten zurückgibt
 app.get('/data.json', (req, res) => {
   // Datei einlesen und als JSON zurückgeben
-  fs.readFile(path.join(__dirname, 'data.json'), 'utf8', (err, data) => {
+  fs.readFile(path.join(__dirname, 'public', 'data.json'), 'utf8', (err, data) => {
     if (err) {
       console.error('Fehler beim Einlesen der Datei:', err);
       res.status(500).send('Fehler beim Einlesen der Datei');

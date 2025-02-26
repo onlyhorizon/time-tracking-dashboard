@@ -131,7 +131,6 @@
               });
 
               function handleCategoryClick(event) {
-                console.log(`Du hast auf die Kategorie "${event.target.textContent}" geklickt!`);
                 let timeframe = event.target.value;
                 document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
                 event.target.classList.add('active');
