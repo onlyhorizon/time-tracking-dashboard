@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="styles.css" rel="stylesheet">
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+</head>
+<body>
+  <main>
+    <div id="profile">
+      <div id="profile-head">
+        <img src="images/image-jeremy.png" alt="Jeremy Robson" id="profile-picture">
+        Report for
+        <h1>Jeremy Robson</h1>
+      </div><!-- profile-head -->
+      <div id="profile-filter">
+        <button class="category" value="daily" id="daily">Daily</button>
+        <button class="category active" value="weekly">Weekly</button>
+        <button class="category" value="monthly">Monthly</button>
+      </div><!-- profile-filter -->
+    </div><!-- profile -->
+    <div id="card-board">
+      <div class="card" id="work">
+        <div class="card-content">
+          <div class="card-content-title">
+            <h3>Work</h3>
+            <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+          </div><!-- card-content-title -->
+          <h2><span class="current-hours"></span>
+            <p>Previous - <span class="previous-hours"></span></p></h2>
+          </div><!-- card-content -->
+        </div><!-- card -->
+
+        <div class="card" id="play">
+          <div class="card-content">
+            <div class="card-content-title">
+              <h3>Play</h3>
+              <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+            </div><!-- card-content-title -->
+            <h2><span class="current-hours"></span>
+              <p>Previous - <span class="previous-hours"></span></p></h2>
+            </div><!-- card-content -->
+          </div><!-- card -->
+
+          <div class="card" id="study">
+            <div class="card-content">
+              <div class="card-content-title">
+                <h3>Study</h3>
+                <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+              </div><!-- card-content-title -->
+              <h2><span class="current-hours"></span>
+                <p>Previous - <span class="previous-hours"></span></p></h2>
+              </div><!-- card-content -->
+            </div><!-- card -->
+
+            <div class="card" id="exercise">
+              <div class="card-content">
+                <div class="card-content-title">
+                  <h3>Exercise</h3>
+                  <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                </div><!-- card-content-title -->
+                <h2><span class="current-hours"></span>
+                  <p>Previous - <span class="previous-hours"></span></p></h2>
+                </div><!-- card-content -->
+              </div><!-- card -->
+
+              <div class="card" id="social">
+                <div class="card-content">
+                  <div class="card-content-title">
+                    <h3>Social</h3>
+                    <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                  </div><!-- card-content-title -->
+                  <h2><span class="current-hours"></span>
+                    <p>Previous - <span class="previous-hours"></span></p></h2>
+                  </div><!-- card-content -->
+                </div><!-- card -->
+
+                <div class="card" id="selfcare">
+                  <div class="card-content">
+                    <div class="card-content-title">
+                      <h3>Self Care</h3>
+                      <img src="images/icon-ellipsis.svg" alt="three dots" width="16">
+                    </div><!-- card-content-title -->
+                    <h2><span class="current-hours"></span>
+                      <p>Previous - <span class="previous-hours"></span></p></h2>
+                    </div><!-- card-content -->
+                  </div><!-- card -->
+                </div><!-- card-board -->
+              </main>
+            </body>
+            <script>
+              const currentHoursArray = document.querySelectorAll(".current-hours");
+              const previousHoursArray = document.querySelectorAll(".previous-hours");
+              const categoryArray = document.querySelectorAll(".category");
+
+              var data; 
+
+              fetch('/data.json')
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+                }
+                return response.json(); 
+              })
+              .then(fetchedData  => {
+                data = fetchedData;
+                for (i = 0; i < currentHoursArray.length; i++) {
+                  if (data[i].timeframes.weekly.current > 1) {
+                    currentHoursArray[i].innerHTML = data[i].timeframes.weekly.current + "hrs"
+                  } else { currentHoursArray[i].innerHTML = data[i].timeframes.weekly.current + "hr"}
+                }
+                for (i = 0; i < previousHoursArray.length; i++) {
+                  if (data[i].timeframes.weekly.previous > 1) {
+                    previousHoursArray[i].innerHTML = data[i].timeframes.weekly.previous + "hrs";
+                  } else { previousHoursArray[i].innerHTML = data[i].timeframes.weekly.previous + "hr"}
+                }
+                console.log('Geladene JSON-Daten:', data);
+              })
+              .catch(error => {
+                console.error('Fehler beim Laden der Daten:', error);
+              });
+
+              categoryArray.forEach(category => {
+                category.addEventListener('click', handleCategoryClick);
+              });
+
+              function handleCategoryClick(event) {
+                console.log(`Du hast auf die Kategorie "${event.target.textContent}" geklickt!`);
+                let timeframe = event.target.value;
+                document.querySelectorAll('.category').forEach(item => item.classList.remove('active'));
+                event.target.classList.add('active');
+                for (i = 0; i < currentHoursArray.length; i++) {
+                 if (data[i].timeframes[timeframe].current > 1) {
+                  currentHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hrs";
+                } else {
+                  currentHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hr";
+                }
+              } 
+              for (i = 0; i < previousHoursArray.length; i++) {
+               if (data[i].timeframes[timeframe].current > 1) {
+                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hrs";
+              } else {
+                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hr";
+              }
+            } 
+          }
+        </script>
+        </html>
