@@ -23,10 +23,10 @@ body {
 main {
 	display: flex;
 	justify-content: space-between;
-	width: 1050px;
+	max-width: 1050px;
 }
 #profile {
-	width: 255px;
+	max-width: 255px;
 	margin: 0 30px 0 0;
 	border-radius: 15px;
 	background-color: var(--purple-background);
@@ -46,7 +46,7 @@ main {
 }
 #profile-picture {
 	border-radius: 50%;
-	width: 78px;
+	max-width: 78px;
 	height: 78px;
 	border: 2px solid var(--white);
 	margin: 0 0 32px;
@@ -174,4 +174,52 @@ button {
 }
 button:not(:last-of-type) {
 	margin: 0 0 21px;
+}		
+@media screen and (max-width: 500px) {
+	body {
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+	main {
+		flex-direction: column;
+		padding: 24px;
+	}
+	.card {
+		width: 100%;
+	}
+	.card:not(:last-of-type) {
+		margin: 0 0 24px;
+	}
+	#profile {
+		max-width: 100%;
+		margin: 0 0 24px;
+	}
+	#profile-filter {
+		display: flex;
+		justify-content: space-between;
+	}
+	button {
+		margin: 0 !important;
+	}
+	#profile-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	h1 {
+		font-size: 24px;
+		line-height: 1.17em;
+	}
+	#profile-picture {
+		margin: 0;
+		width: 64px;
+		height: 64px;
+	}
+	h2 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 32px;
+		line-height: 1em;
+	}
 }

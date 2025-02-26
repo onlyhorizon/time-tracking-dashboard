@@ -14,8 +14,10 @@
     <div id="profile">
       <div id="profile-head">
         <img src="images/image-jeremy.png" alt="Jeremy Robson" id="profile-picture">
-        Report for
-        <h1>Jeremy Robson</h1>
+        <div>
+          Report for
+          <h1>Jeremy Robson</h1>
+        </div>
       </div><!-- profile-head -->
       <div id="profile-filter">
         <button class="category" value="daily" id="daily">Daily</button>
@@ -141,10 +143,10 @@
                 }
               } 
               for (i = 0; i < previousHoursArray.length; i++) {
-               if (data[i].timeframes[timeframe].current > 1) {
-                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hrs";
+               if (data[i].timeframes[timeframe].previous > 1) {
+                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].previous + "hrs";
               } else {
-                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].current + "hr";
+                previousHoursArray[i].innerHTML = data[i].timeframes[timeframe].previous + "hr";
               }
             } 
           }
